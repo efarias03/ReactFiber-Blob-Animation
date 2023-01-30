@@ -1,14 +1,16 @@
 import { Canvas } from "@react-three/fiber";
 import { Blob } from "../../components/Blob";
+import { OrbitControls } from '@react-three/drei';
 
 export function Home() {
 
     return (
         <div className="container">
-            <Canvas camera={{ position: [0.0, 0.0, 8.0] }}>
+            <Canvas>
                 <Blob />
+                <OrbitControls />
             </Canvas>
-            <h1>Blob animation React Fiber</h1>
+            <h1>Blob animation React</h1>
         </div>
     )
 }

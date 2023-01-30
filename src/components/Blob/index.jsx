@@ -4,6 +4,7 @@ import fragmentShader from "./fragmentShader";
 import { useFrame } from "@react-three/fiber";
 import { MathUtils } from "three";
 
+
 export function Blob() {
     const mesh = useRef();
     const hover = useRef(false);
@@ -22,7 +23,7 @@ export function Blob() {
 
             mesh.current.material.uniforms.u_intensity.value = MathUtils.lerp(
                 mesh.current.material.uniforms.u_intensity.value,
-                hover.current ? 1 : 0.15,
+                hover.current ? .7 : 0.15,
                 0.02
             );
         }
@@ -32,12 +33,12 @@ export function Blob() {
     return (
         <mesh
             ref={mesh}
-            scale={1.5}
+            scale={0.5}
             position={[0, 0, 0]}
             onPointerOver={() => (hover.current = true)}
             onPointerOut={() => (hover.current = false)}
         >
-            <icosahedronBufferGeometry args={[2, 20]} />
+            <icosahedronBufferGeometry args={[3, 20]} />
             <shaderMaterial
                 vertexShader={vertexShader}
                 fragmentShader={fragmentShader}
